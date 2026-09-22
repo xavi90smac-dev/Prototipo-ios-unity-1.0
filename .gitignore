@@ -73,3 +73,10 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+
+# Archivos multimedia y texturas pesadas (Evita errores de límite en GitHub)
+*.psd
+*.hdr
+*.png
+*.exr
+*.tiff
