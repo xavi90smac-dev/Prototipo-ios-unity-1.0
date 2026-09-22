@@ -47,6 +47,7 @@ jobs:
           UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
         with:
           targetPlatform: ${{ matrix.targetPlatform }}
+          projectPath: .
 
       - name: Upload Build Artifacts
         uses: actions/upload-artifact@v4
