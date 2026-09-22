@@ -6,11 +6,23 @@ on:
 
 jobs:
   build:
-    name: Build Xcode Project for iOS
+    name: Build Unity iOS Project
     runs-on: macos-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: List files
-        run: ls -R
+      - name: Restore Unity Library (Cache)
+        uses: actions/cache@v3
+        with:
+          path: Library
+          key: Library-ios-${{ hashFiles('Assets/**', 'Packages/**') }}
+          restore-keys: |
+            Library-ios-
+
+      - name: Build Unity Project for iOS
+        uses: game-ci/unity-builder@v4
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+        with:
+          targetPlatform: iOS
