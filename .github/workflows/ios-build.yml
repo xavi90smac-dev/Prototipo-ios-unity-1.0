@@ -1,0 +1,16 @@
+name: Build iOS Unity Project
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    name: Build Xcode Project for iOS
+    runs-on: macos-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: List files
+        run: ls -R
